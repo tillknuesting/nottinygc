@@ -1,4 +1,4 @@
-module github.com/wasilibs/nottinygc
+module github.com/tillknuesting/nottinygc
 
 go 1.19
 
