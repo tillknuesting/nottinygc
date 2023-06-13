@@ -50,6 +50,7 @@ func initHeap() {
 // collection cycle if needed. If no space is free, it panics.
 //
 //go:linkname alloc runtime.alloc
+//export malloc
 func alloc(size uintptr, layout unsafe.Pointer) unsafe.Pointer {
 	buf := C.GC_malloc(C.uint(size))
 	if buf == nil {
@@ -59,6 +60,7 @@ func alloc(size uintptr, layout unsafe.Pointer) unsafe.Pointer {
 }
 
 //go:linkname free runtime.free
+//export malloc
 func free(ptr unsafe.Pointer) {
 	C.GC_free(ptr)
 }
